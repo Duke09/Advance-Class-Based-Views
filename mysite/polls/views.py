@@ -3,6 +3,7 @@ from django.http import Http404
 from django.views.generic import ListView, DetailView, DeleteView
 
 from .models import Question, Choice
+from .mixins import RequireLoginMixin
 
 # Create your views here.
 def index(request):
@@ -17,7 +18,7 @@ def detail(request, question_id):
     return render(request, 'polls/detail.html', {'question': question})
 
 # Class Based Views
-class IndexView(ListView):
+class IndexView(RequireLoginMixin, ListView):
     template_name = 'polls/index.html'
     context_object_name = 'latest_question_list'
 

@@ -14,4 +14,5 @@ urlpatterns = [
     # using regular expression
     url(r'^$', IndexView.as_view(), name='polls_index'),
     url(r'^(?P<pk>[0-9]+)/$', DetailView.as_view(), name='polls_detail'),
+    url(r'^(?P<pk>[0-9]+)/delete/$', DeleteView.as_view(), name='polls_delete'),
 ]
