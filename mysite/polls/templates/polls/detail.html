@@ -6,4 +6,13 @@
 
 {% block content %}
     {{ question.question_text }}
+    
+    <form action="{% url 'polls:vote' question.id %}" method="post">
+        {% csrf_token %}
+        {% for choice in question.choice_set.all %}
+            <input type="radio" name="choice" id="{{ choice.id }}" value="{{ choice.id }}">
+            {{ choice }}
+        {% endfor %}
+        <button type="submit">Vote</button>
+    </form>
 {% endblock %}

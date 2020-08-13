@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Mysite
+{% endblock %}
+
+{% block content %}
+    {{ question.question_text }}
+    {% for vote in question.choice_set.all %}
+        <ul>
+            <li>
+                {{ vote }} | Votes - {{ vote.votes }}
+            </li>
+        </ul>
+    {% endfor %}
+{% endblock %}
