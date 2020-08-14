@@ -70,3 +70,12 @@ class ResultsView(TemplateResponseMixin, View):
         queryset = self.get_queryset(pk)
         context = {'question': queryset}
         return render(request, 'polls/results.html', context)
+
+class SwitchBoardView(View):
+    def get(self, request, pk):
+        view = ResultsView.as_view()
+        return view(request, pk)
+
+    def post(self, request, pk):
+        view = VoteView.as_view()
+        return view(request, pk)
