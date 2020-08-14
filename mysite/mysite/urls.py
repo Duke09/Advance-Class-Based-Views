@@ -16,10 +16,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from django.contrib.auth.views import LoginView, LogoutView
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/login/', LoginView.as_view(), name='login'),
     path('api/', include('polls.api.urls')),
     path('api/', include('rest_framework.urls', namespace='rest_framework')),
+    path('graphql', include('polls.graphql.urls')),
     path('', include('polls.urls', namespace='polls')),
 ]

@@ -39,6 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'polls.apps.PollsConfig',
     'rest_framework',
+    'graphene',
+    'graphene_django',
 ]
 
 MIDDLEWARE = [
@@ -121,8 +123,13 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-REST_FRAMEWORK = {
-    'DEFAULT_AUTHENTICATION_CLASSES': (
-        'polls.api.authenticate.AdminOnlyAuth',
-    )
+# REST_FRAMEWORK = {
+#     'DEFAULT_AUTHENTICATION_CLASSES': (
+#         'polls.api.authenticate.AdminOnlyAuth',
+#     )
+# }
+
+# GraphQL
+GRAPHENE = {
+    'SCHEMA': 'polls.graphql.schema.schema'
 }
