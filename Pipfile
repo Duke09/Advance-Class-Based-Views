@@ -21,6 +21,8 @@ six = "*"
 sqlparse = "*"
 Django = "*"
 Unidecode = "*"
+model-mommy = "*"
+coverage = "*"
 
 [requires]
 python_version = "3.8"
